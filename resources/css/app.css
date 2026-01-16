@@ -1,0 +1,152 @@
+/* Auth Container */
+.auth-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container .row {
+    position: relative;
+    min-height: 600px;
+}
+
+/* Gradiente con transizione fluida */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+/* Tutti i pannelli posizionati in modo assoluto */
+.login-container,
+.register-container,
+.switch-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+/* STATO INIZIALE: Login a sinistra, Switch Panel a destra */
+.login-container {
+    left: 0;
+    opacity: 1;
+    pointer-events: all;
+    z-index: 2;
+}
+
+.register-container {
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.switch-panel {
+    left: 50%;
+    opacity: 1;
+    pointer-events: all;
+    z-index: 2;
+}
+
+/* STATO REGISTER ATTIVO: Switch Panel a sinistra, Register a destra */
+.auth-container.register-active .login-container {
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.auth-container.register-active .register-container {
+    left: 50%;
+    opacity: 1;
+    pointer-events: all;
+    z-index: 2;
+}
+
+.auth-container.register-active .switch-panel {
+    left: 0;
+    opacity: 1;
+    pointer-events: all;
+    z-index: 2;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Animation */
+.card {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .auth-container .row {
+        min-height: auto;
+    }
+    
+    .login-container,
+    .register-container,
+    .switch-panel {
+        width: 100% !important;
+        position: relative !important;
+        left: 0 !important;
+        opacity: 1 !important;
+    }
+    
+    .register-container {
+        display: none;
+    }
+    
+    .auth-container.register-active .login-container {
+        display: none;
+    }
+    
+    .auth-container.register-active .register-container {
+        display: block;
+    }
+    
+    .auth-container.register-active .switch-panel {
+        order: 2;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) and (min-width: 769px) {
+    .auth-container .row {
+        min-height: 550px;
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1200px) {
+    .auth-container .row {
+        min-height: 650px;
+    }
+}
