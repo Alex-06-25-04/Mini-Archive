@@ -34,7 +34,7 @@ export const fetchApi = async (endpoint, options = {}) => {
         const contentType = response.headers.get('content-type');
 
         if (!contentType?.includes('application/json')) {
-            const text = await response.text();
+            await response.text();
             throw new Error('Server ha risposto con HTML invece di JSON');
         }
 
