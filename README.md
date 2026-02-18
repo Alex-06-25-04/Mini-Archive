@@ -1,59 +1,267 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Mini Archive - Sistema di Gestione Risorse
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Mini Archive è un'applicazione web moderna per organizzare e gestire risorse digitali (documenti, software, hardware, corsi, ecc.) con sistema di autenticazione, ruoli utente e interfaccia intuitiva.
 
-## About Laravel
+## 🖼️ Screenshot
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Homepage con Risorse
+![Homepage](docs/screenshots/homepage.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Pagina Login
+![Login](docs/screenshots/login.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Creazione Nuova Risorsa (Admin)
+![Create Modal](docs/screenshots/create-modal.png)
 
-## Learning Laravel
+### Ricerca Risorse
+![Search](docs/screenshots/search.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## ✨ Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Autenticazione & Autorizzazione
+- 🔐 Registrazione e login utenti
+- 🎫 Autenticazione API con Laravel Sanctum (Bearer Token)
+- 👥 Sistema di ruoli (Admin / User)
+- 🚪 Logout con invalidazione token
 
-## Laravel Sponsors
+### Gestione Risorse (CRUD)
+- ➕ Creazione risorse (solo admin)
+- ✏️ Modifica risorse (solo admin)
+- 🗑️ Eliminazione risorse (solo admin)
+- 👁️ Visualizzazione risorse (tutti gli utenti)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Funzionalità Avanzate
+- 🔍 Ricerca risorse per nome o categoria
+- 🏷️ Categorizzazione automatica (6 categorie predefinite)
+- 🖼️ Immagini di anteprima per ogni risorsa
+- 📱 Design completamente responsive
+- ⚡ Interfaccia dinamica senza ricaricamento pagina (SPA-like)
 
-### Premium Partners
+## 🛠️ Stack Tecnologico
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Backend
+- **Framework:** Laravel 11
+- **Autenticazione:** Laravel Sanctum (Token-based API Auth)
+- **Database:** SQLite (sviluppo) / MySQL (produzione)
+- **Architettura:** Service Layer Pattern
+- **Validazione:** Form Request Classes
 
-## Contributing
+### Frontend
+- **JavaScript:** Vanilla JS (ES6+) - Nessun framework pesante
+- **UI Framework:** Bootstrap 5.3
+- **Icons:** Bootstrap Icons
+- **Build Tool:** Vite
+- **CSS:** Bootstrap + Custom CSS
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### DevOps
+- **Dependency Management:** Composer (PHP) + NPM (JS)
+- **Version Control:** Git
+- **Server:** Apache/Nginx + PHP 8.2+
 
-## Code of Conduct
+## 📋 Requisiti di Sistema
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **PHP:** >= 8.2
+- **Composer:** >= 2.0
+- **Node.js:** >= 18.0
+- **NPM:** >= 9.0
+- **Database:** SQLite o MySQL/MariaDB
+- **Estensioni PHP:** PDO, Mbstring, OpenSSL, JSON
 
-## Security Vulnerabilities
+## 🚀 Installazione
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 1. Clona il Repository
+```bash
+git clone https://github.com/tuo-username/mini-archive.git
+cd mini-archive
+```
 
-## License
+### 2. Installa Dipendenze Backend
+```bash
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Installa Dipendenze Frontend
+```bash
+npm install
+```
+
+### 4. Configura Environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Modifica il file `.env` con le tue configurazioni:
+```env
+DB_CONNECTION=sqlite
+# Oppure per MySQL:
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=mini_archive
+# DB_USERNAME=root
+# DB_PASSWORD=
+```
+
+### 5. Crea Database e Popola con Dati di Esempio
+```bash
+# Crea il file database (se usi SQLite)
+touch database/database.sqlite
+
+# Esegui migrazioni e seeder
+php artisan migrate --seed
+```
+
+### 6. Avvia i Server
+
+**In due terminali separati:**
+
+Terminale 1 - Backend:
+```bash
+php artisan serve
+# Server disponibile su: http://127.0.0.1:8000
+```
+
+Terminale 2 - Frontend:
+```bash
+npm run dev
+# Frontend disponibile su: http://localhost:5173
+```
+
+### 7. Accedi all'Applicazione
+
+Apri il browser su `http://localhost:5173`
+
+**Credenziali di Test:**
+- **Admin:** 
+  - Email: `admin@test.com`
+  - Password: `password`
+- **User Normale:** 
+  - Email: `user@test.com`
+  - Password: `password`
+
+## 📁 Struttura del Progetto
+```
+mini-archive/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/      # API Controllers
+│   │   ├── Middleware/       # Custom Middleware (IsAdmin)
+│   │   └── Requests/         # Form Request Validation
+│   ├── Models/               # Eloquent Models
+│   └── Services/             # Business Logic Layer
+├── database/
+│   ├── migrations/           # Database Schema
+│   └── seeders/              # Data Seeders
+├── resources/
+│   ├── css/                  # Styles
+│   ├── js/
+│   │   ├── api/             # API Client
+│   │   ├── components/      # UI Components
+│   │   └── pages/           # Page Components
+│   └── views/               # Blade Templates
+├── routes/
+│   ├── api.php              # API Routes
+│   └── web.php              # Web Routes
+└── public/                  # Public Assets
+```
+
+## 🔌 API Endpoints
+
+### Autenticazione
+```
+POST   /api/register          - Registrazione nuovo utente
+POST   /api/login             - Login e generazione token
+POST   /api/logout            - Logout e invalidazione token (auth)
+```
+
+### Risorse (Public)
+```
+GET    /api/resources         - Lista tutte le risorse
+GET    /api/resources/{id}    - Dettagli singola risorsa
+GET    /api/resources/search  - Ricerca risorse (query: name, category)
+```
+
+### Risorse (Admin Only - Richiede Token)
+```
+POST   /api/resources         - Crea nuova risorsa
+PUT    /api/resources/{id}    - Aggiorna risorsa
+DELETE /api/resources/{id}    - Elimina risorsa
+```
+
+**Autenticazione API:**
+Tutte le rotte protette richiedono header:
+```
+Authorization: Bearer {token}
+```
+
+## 🎨 Categorie Disponibili
+
+1. 📄 **Documenti** - Guide, manuali, documentazione
+2. 💻 **Software** - Applicazioni, tool, utilities
+3. 🖥️ **Hardware** - Dispositivi, componenti
+4. 📈 **Marketing** - Strumenti di marketing e analytics
+5. 🎓 **Formazione** - Corsi, tutorial, risorse educative
+6. 👥 **HR** - Risorse umane, recruiting
+
+## 🧪 Testing
+```bash
+# Esegui tutti i test
+php artisan test
+
+# Test con coverage
+php artisan test --coverage
+```
+
+## 📦 Build per Produzione
+```bash
+# Build assets frontend
+npm run build
+
+# Ottimizza autoload composer
+composer install --optimize-autoloader --no-dev
+
+# Cache configurazione Laravel
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+## 🐛 Troubleshooting
+
+### Errore "Failed to fetch" durante DELETE
+- Verifica che `credentials: 'include'` sia commentato in `fetch.js`
+- Controlla che il controllo del 204 sia prima del controllo Content-Type
+
+### CORS Errors
+- Verifica `config/cors.php` - `supports_credentials` deve essere `true`
+- Controlla che `HandleCors` middleware sia applicato alle rotte API
+
+### Token non riconosciuto
+- Verifica che il token sia salvato correttamente in localStorage
+- Controlla l'header `Authorization: Bearer {token}` nella richiesta
+
+## 🤝 Contribuire
+
+Le pull request sono benvenute! Per modifiche importanti, apri prima un issue per discutere cosa vorresti cambiare.
+
+## 📄 Licenza
+
+Questo progetto è rilasciato sotto licenza [MIT](https://opensource.org/licenses/MIT).
+
+## 👨‍💻 Autore
+
+**Alessandro Maria Leonardo Mattera**
+- GitHub: [https://github.com/Alex-06-25-04](https://github.com/Alex-06-25-04)
+- LinkedIn: [https://linkedin.com/in/alessandro-mattera-538a48324](https://linkedin.com/in/alessandro-mattera-538a48324)
+- Portfolio: [https://ale-portfolio.pages.dev/](https://ale-portfolio.pages.dev/)
+
+## 🙏 Ringraziamenti
+
+- Laravel Framework per l'eccellente documentazione
+- Bootstrap per il sistema di design
+- Community PHP e JavaScript per il supporto
+
+---
+
+⭐ Se questo progetto ti è stato utile, lascia una stella su GitHub!
